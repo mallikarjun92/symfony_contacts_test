@@ -9,7 +9,7 @@ class ContactControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/contact');
+        $client->request('GET', '/contact/');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Contacts');
@@ -21,6 +21,7 @@ class ContactControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/contact/new');
 
         $this->assertResponseIsSuccessful();
+        // $this->assertSelectorTextContains('h1', 'Create a new contact');
         $this->assertSelectorTextContains('h1', 'Create a new contact');
 
         // Submit a form with valid data
@@ -31,7 +32,7 @@ class ContactControllerTest extends WebTestCase
 
         $client->submit($form);
 
-        $this->assertResponseRedirects('/contact');
+        $this->assertResponseRedirects('/contact/');
     }
 
     public function testShow(): void
@@ -49,15 +50,14 @@ class ContactControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/contact/1/edit');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Edit contact');
+        $this->assertSelectorTextContains('h1', 'Edit Contact');
 
-        // Submit a form with valid data
         $form = $crawler->selectButton('Update')->form();
         $form['contact[name]'] = 'Updated Name';
 
         $client->submit($form);
 
-        $this->assertResponseRedirects('/contact');
+        $this->assertResponseRedirects('/contact/');
     }
 
     public function testDelete(): void
@@ -65,7 +65,7 @@ class ContactControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('POST', '/contact/1');
 
-        $this->assertResponseRedirects('/contact');
+        $this->assertResponseRedirects('/contact/');
     }
 }
 
