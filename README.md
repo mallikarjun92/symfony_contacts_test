@@ -26,7 +26,7 @@ composer install
 
 OR
 
-* Create a empty database from xampp control panel
+* Create a empty MySQL database from localhost/phpmyadmin
 * Configure database in .env file located in root directory
 * In the .env file located in root directory change line DATABASE_URL="mysql://root:@127.0.0.1:3306/symfApp" to your database credential in the format shown below 
 * e.g. DATABASE_URL="mysql://{username}:{password}@127.0.0.1:3306/{databasename}"
