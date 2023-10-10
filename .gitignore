@@ -22,4 +22,4 @@ phpunit.xml
 
 node_modules/
 .settings
-.buildpath
+/.buildpath
