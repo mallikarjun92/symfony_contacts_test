@@ -43,3 +43,10 @@ php bin/console doctrine:migrations:migrate
 ```bash
 php bin/phpunit
 ```
+
+
+
+**** NOTE
+
+
+import the database file symfAppTest.sql in the root directory to the database created to test the email confirmation, reset password test cases
