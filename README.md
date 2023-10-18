@@ -38,15 +38,16 @@ OR
 php bin/console doctrine:migrations:migrate
 ```
 
-****** Run PHP Unit test
-
-```bash
-php bin/phpunit
-```
-
-
 
 **** NOTE
 
 
 import the database file symfAppTest.sql in the root directory to the database created to test the email confirmation, reset password test cases
+
+
+
+****** Run PHP Unit test
+
+```bash
+php bin/phpunit
+```
