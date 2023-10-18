@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>ContactNumber</th>
                 <th>Address</th>
+		<th>Email</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,9 +23,13 @@
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.contactNumber }}</td>
                 <td>{{ contact.address }}</td>
+		<td>{{ contact.email }}</td>
                 <td>
                     <a href="{{ path('app_contact_show', {'id': contact.id}) }}">show</a>
                     <a href="{{ path('app_contact_edit', {'id': contact.id}) }}">edit</a>
+		{# delete form #}
+	                {{ include('contact/_delete_form.html.twig') }}
+	            {# end of delete form #}	
                 </td>
             </tr>
         {% else %}
